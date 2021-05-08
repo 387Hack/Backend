@@ -12,6 +12,11 @@ app.use(express.json());
 
 app.use(cors());
 
+require("./Models/User");
+
+app.use("/auth", require("./Routes/Auth"));
+app.use("/score", require("./Routes/Scores"));
+
 app.get("/", (req, res) => {
   res.json({
     message: "387Hack BACKEND",
