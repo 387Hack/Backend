@@ -11,7 +11,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/protected", requiredLogin, (req, res) => {
-  res.send("We are in protected page");
+  req.user.password = "";
+  res.send(req.user);
 });
 
 router.post("/signup", (req, res) => {
